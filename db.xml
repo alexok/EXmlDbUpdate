@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<db>
+    <table name="page">
+        <field name="id" type="pk" />
+        <field name="blog_id" type="integer" />
+        <field name="alias" type="string" />
+        <field name="title" type="string" />
+        <field name="intro" type="text" />
+        <field name="text" type="mediumtext" />
+        <field name="created" type="datetime" />
+        <field name="modified" type="datetime" />
+    </table>
+
+    <table name="blog">
+        <field name="id" type="pk" />
+        <field name="alias" type="string" />
+        <field name="title" type="string" />
+        <field name="ordering" type="integer" default="DEFAULT 1" />
+        <field name="params" type="text" />
+    </table>
+
+    <table name="event">
+        <field name="id" type="pk" />
+        <field name="title" type="string" />
+        <field name="intro" type="text" />
+        <field name="text" type="text" />
+        <field name="created" type="datetime" />
+        <field name="publish" type="boolean" default="DEFAULT 1" />
+    </table>
+
+    <table name="menu">
+        <field name="id" type="pk" />
+        <field name="title" type="string" />
+        <field name="type" type="string" default="DEFAULT 'model'" />
+        <field name="options" type="string" />
+        <field name="ordering" type="integer" default="DEFAULT 1" />
+        <field name="default" type="boolean" default="DEFAULT 0" />
+        <field name="hidden" type="boolean" default="DEFAULT 0" />
+    </table>
+
+    <table name="settings">
+        <field name="id" type="pk" />
+        <field name="category" type="varchar(64)" default="DEFAULT 'system'" />
+        <field name="key" type="string" />
+        <field name="value" type="text" />
+
+        <index name="category" />
+        <index name="key" />
+    </table>
+
+    <table name="image">
+        <field name="id" type="pk" />
+        <field name="model" type="varchar(20)" />
+        <field name="item_id" type="integer" />
+        <field name="filename" type="varchar(100)" />
+        <field name="description" type="varchar(500)" />
+        <field name="ordering" type="integer" default="DEFAULT 1" />
+    </table>
+
+    <table name="file">
+        <field name="id" type="pk" />
+        <field name="model" type="varchar(20)" />
+        <field name="item_id" type="integer" />
+        <field name="filename" type="varchar(100)" />
+        <field name="description" type="varchar(500)" />
+    </table>
+
+    <table name="link">
+        <field name="id" type="pk" />
+        <field name="title" type="string" />
+        <field name="url" type="string" />
+    </table>
+
+    <table name="metadata">
+        <field name="id" type="pk" />
+        <field name="owner_name" type="varchar(50)" />
+        <field name="owner_id" type="integer" />
+        <field name="meta_title" type="string" />
+        <field name="meta_key" type="text" />
+        <field name="meta_desc" type="text" />
+    </table>
+
+    <table name="category">
+        <field name="id" type="pk" />
+        <field name="title" type="string" />
+        <field name="description" type="mediumtext" />
+        <field name="ordering" type="integer" default="DEFAULT 1" />
+        <field name="root" type="integer" />
+        <field name="lft" type="integer" />
+        <field name="rgt" type="integer" />
+        <field name="level" type="smallint(5)" />
+
+        <index name="root" />
+        <index name="lft" />
+        <index name="rgt" />
+        <index name="level" />
+    </table>
+
+    <table name="order">
+        <field name="id" type="pk" />
+        <field name="name" type="varchar(50)" />
+        <field name="email" type="string" />
+        <field name="phone" type="string" />
+        <field name="address" type="string" />
+        <field name="comment" type="string" />
+        <field name="products" type="text" />
+        <field name="payment" type="text" />
+        <field name="payment_complete" type="boolean" default="DEFAULT 0" />
+        <field name="completed" type="boolean" default="DEFAULT 0" />
+        <field name="created" type="datetime" />
+    </table>
+
+    <table name="product">
+        <field name="id" type="pk" />
+        <field name="category_id" type="integer" />
+        <field name="code" type="string" />
+        <field name="title" type="string" />
+        <field name="description" type="text" />
+        <field name="price" type="integer" />
+        <field name="notexist" type="boolean" />
+        <field name="sale" type="boolean" />
+        <field name="new" type="boolean" />
+        <field name="ordering" type="integer" default="DEFAULT 1" />
+        <field name="created" type="datetime" />
+    </table>
+
+    <table name="question">
+        <field name="id" type="pk" />
+        <field name="username" type="string" />
+        <field name="question" type="string" />
+        <field name="answer" type="text" />
+        <field name="created" type="datetime" />
+    </table>
+
+    <table name="slide">
+        <field name="id" type="pk" />
+        <field name="title" type="string" />
+        <field name="type" type="integer" default="DEFAULT 0" />
+        <field name="link" type="string" />
+        <field name="filename" type="string" />
+        <field name="ordering" type="integer" default="DEFAULT 1" />
+    </table>
+
+    <table name="product_review">
+        <field name="id" type="pk" />
+        <field name="product_id" type="integer"/>
+        <field name="mark" type="integer"/>
+        <field name="username" type="string" />
+        <field name="text" type="mediumtext" />
+        <field name="ts" type="timestamp" />
+        <field name="ip" type="integer" />
+        <field name="published" type="boolean" />
+    </table>
+</db>
